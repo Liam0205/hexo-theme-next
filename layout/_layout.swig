@@ -119,5 +119,6 @@
   {% include '_third-party/bookmark.swig' %}
   {% include '_third-party/copy-code.swig' %}
   {% include '_third-party/pdf.swig' %}
+  {% include '_third-party/liam/crash_title_cheat.swig' %}
 </body>
 </html>
