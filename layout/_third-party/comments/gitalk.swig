@@ -26,7 +26,8 @@
           owner: '{{ theme.gitalk.github_id }}',
           admin: ['{{ theme.gitalk.admin_user }}'],
           id: md5(location.pathname),
-          distractionFreeMode: '{{ theme.gitalk.distraction_free_mode }}'
+          distractionFreeMode: '{{ theme.gitalk.distraction_free_mode }}',
+          language: '{{ theme.gittalk.language }}'
         })
         gitalk.render('gitalk-container')
        </script>
