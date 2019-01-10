@@ -11,9 +11,9 @@
     },
     TeX: {
       {% if theme.math.mathjax.mhchem %}
-        extensions: ["AMSmath.js", "AMSsymbols.js", "autobold.js", "[mhchem]/mhchem.js"]
+        extensions: ["AMSmath.js", "AMSsymbols.js", "autobold.js", "[mhchem]/mhchem.js"],
       {% else %}
-        extensions: ["AMSmath.js", "AMSsymbols.js", "autobold.js"]
+        extensions: ["AMSmath.js", "AMSsymbols.js", "autobold.js"],
       {% endif %}
       equationNumbers: {
         autoNumber: "AMS"
