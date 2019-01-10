@@ -1,17 +1,17 @@
+{% if theme.crash_title_cheat.enable %}
 <script type="text/javascript">
-<!--崩溃欺骗-->
-var originTitle = document.title;
+var originalTitle = document.title;
 var titleTime;
 document.addEventListener('visibilitychange', function () {
     if (document.hidden) {
-        document.title = '╭(°A°`)╮ page crashed~';
+        document.title = '{{ theme.crash_title_cheat.crash_string }}' + originalTitle;
         clearTimeout(titleTime);
-    }
-    else {
-        document.title = '(ฅ>ω<*ฅ) well, it works now~' + originTitle;
+    } else {
+        document.title = '{{ theme.crash_title_cheat.recover_string }}' + originalTitle;
         titleTime = setTimeout(function () {
-            document.title = originTitle;
+            document.title = originalTitle;
         }, 2000);
     }
 });
 </script>
+{% endif %}
