@@ -30,6 +30,29 @@
       }
   });
 </script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  $("code").map(function(){
+    match = /^\$(.*)\$$/.exec($(this).html());
+    if (match) {
+      $(this).replaceWith("<span class=hpl_mathjax_inline>" + $(this).html() + "</span>");
+      MathJax.Hub.Queue(["Typeset",MathJax.Hub,$(this).get(0)]);
+    }
+    match = /^\$\$(.*)\$\$$/.exec($(this).html());
+    if (match) {
+      $(this).replaceWith("<span class=hpl_mathjax_inline>" + $(this).html() + "</span>");
+      MathJax.Hub.Queue(["Typeset",MathJax.Hub,$(this).get(0)]);
+    }
+    match = /^\\begin/.exec($(this).html());
+    if (match) {
+      $(this).replaceWith("<span class=hpl_mathjax_inline>" + $(this).html() + "</span>");
+      MathJax.Hub.Queue(["Typeset",MathJax.Hub,$(this).get(0)]);
+    }
+  });
+});
+</script>
+
 <script src="{{ theme.math.mathjax.cdn }}"></script>
 
 <style>
