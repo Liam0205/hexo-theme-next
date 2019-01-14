@@ -84,6 +84,7 @@ reward:
   donate: 寄付
   wechatpay: WeChat 支払う
   alipay: Alipay
+  paypal: PayPal
   bitcoin: ビットコイン
 gitmentbutton: Gitment からのコメントを表示
 accessibility:

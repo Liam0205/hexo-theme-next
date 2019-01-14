@@ -84,6 +84,7 @@ reward:
   donate: 捐贈
   wechatpay: 微信支付
   alipay: 支付寶
+  paypal: PayPal
   bitcoin: 比特幣
 gitmentbutton: 顯示 Gitment 評論
 accessibility:

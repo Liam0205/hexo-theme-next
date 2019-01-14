@@ -84,6 +84,7 @@ reward:
   donate: Doneer
   wechatpay: WeChat Pay
   alipay: Alipay
+  paypal: PayPal
   bitcoin: Bitcoin
 gitmentbutton: Show comments from Gitment
 accessibility:

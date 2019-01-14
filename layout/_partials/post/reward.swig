@@ -19,6 +19,13 @@
       </div>
     {% endif %}
 
+    {% if theme.reward.paypal %}
+      <div id="paypal" style="display: inline-block">
+        <img id="paypal_qr" src="{{ url_for(theme.reward.paypal) }}" alt="{{ author }} {{ __('reward.paypal') }}"/>
+        <p>{{ __('reward.paypal') }}</p>
+      </div>
+    {% endif %}
+
     {% if theme.reward.bitcoin %}
       <div id="bitcoin" style="display: inline-block">
         <img id="bitcoin_qr" src="{{ url_for(theme.reward.bitcoin) }}" alt="{{ author }} {{ __('reward.bitcoin') }}"/>
