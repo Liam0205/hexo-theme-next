@@ -8,9 +8,6 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
-    {% if theme.sidebar.onmobile %}
-      <div id="sidebar-dimmer"></div>
-    {% endif %}
     <div class="sidebar-inner">
 
       {% set display_toc = is_post and theme.toc.enable or is_page and theme.toc.enable %}
@@ -115,10 +112,11 @@
 
           {% if theme.creative_commons.license and theme.creative_commons.sidebar %}
              <div class="cc-license motion-element" itemprop="license">
+              {% set ccLanguage = theme.creative_commons.language %}
               {% if theme.creative_commons.license === 'zero' %}
-                {% set ccType = 'publicdomain/zero/1.0/' %}
+                {% set ccType = 'publicdomain/zero/1.0/' + ccLanguage %}
               {% else %}
-                {% set ccType = 'licenses/' + theme.creative_commons.license + '/4.0/' %}
+                {% set ccType = 'licenses/' + theme.creative_commons.license + '/4.0/' + ccLanguage %}
               {% endif %}
               {% set ccURL = 'https://creativecommons.org/' + ccType %}
               {% set ccImage = '<img src="' + url_for(theme.images + '/cc-' + theme.creative_commons.license + '.svg') + '" alt="Creative Commons"/>' %}
@@ -186,4 +184,7 @@
 
     </div>
   </aside>
+  {% if theme.sidebar.dimmer %}
+    <div id="sidebar-dimmer"></div>
+  {% endif %}
 {% endmacro %}

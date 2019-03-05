@@ -34,7 +34,7 @@
 ## What is the current behavior?
 <!-- Please describe the current behavior that you are modifying, or link to a relevant issue. -->
 
-Issue Number(s): N/A
+Issue resolved N/A
 
 ## What is the new behavior?
 Description about this pull, in several words...
@@ -66,9 +66,9 @@ Short description in several words here.
 Issue Number(s): #xxxx.
 
 ### Files modified:
-1.	Short description of modified file [1].			xxxxxxx
-2.	Short description of modified file [2].			xxxxxxx
-3.	Short description of modified file [3].			xxxxxxx
+1. Short description of modified file [1].  xxxxxxx
+2. Short description of modified file [2].  xxxxxxx
+3. Short description of modified file [3].  xxxxxxx
 
 ### Global code changes:
 * ADD: `newFunction` in `utils.js`.
