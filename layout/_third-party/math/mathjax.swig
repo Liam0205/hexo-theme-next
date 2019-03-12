@@ -34,9 +34,9 @@
 <script type="text/x-mathjax-config">
   MathJax.Hub.Queue(function() {
     var all = MathJax.Hub.getAllJax(), i;
-      for (i = 0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-      }
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
   });
 </script>
 
@@ -65,9 +65,12 @@ $(document).ready(function(){
 <script src="{{ theme.math.mathjax.cdn }}"></script>
 
 <style>
-.MathJax_Display {
-  overflow: auto hidden;
-  overflow-x: hidden;
+.has-jax {
+  overflow-x: auto;
   overflow-y: hidden;
+}
+
+li {
+  list-style-position: inside !important;
 }
 </style>

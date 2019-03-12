@@ -24,8 +24,12 @@
     owner: '{{ theme.gitalk.github_id }}',
     admin: ['{{ theme.gitalk.admin_user }}'],
     id: md5(location.pathname),
-    distractionFreeMode: '{{ theme.gitalk.distraction_free_mode }}',
-    language: '{{ theme.gittalk.language }}'
+    {% if theme.gitalk.language == '' %}
+      language: window.navigator.language || window.navigator.userLanguage,
+    {% else %}
+      language: '{{ theme.gitalk.language }}',
+    {% endif %}
+    distractionFreeMode: '{{ theme.gitalk.distraction_free_mode }}'
   });
   gitalk.render('gitalk-container');
 </script>
