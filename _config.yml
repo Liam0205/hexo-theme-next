@@ -233,6 +233,8 @@ toc:
   number: true
   # If true, all words will placed on next lines if header width longer then sidebar width.
   wrap: false
+  # If true, all level of TOC in a post will be displayed, rather than the activated part of it.
+  expand_all: false
   # Maximum heading depth of generated toc. You can set it in one post through `toc_max_depth` in Front Matter.
   max_depth: 6
 
@@ -266,6 +268,14 @@ back2top:
   sidebar: false
   # Scroll percent label in b2t button.
   scrollpercent: false
+
+# A button to open designated chat widget in sidebar.
+# Firstly, you need enable the chat service you want to activate its sidebar button.
+chat:
+  enable: false
+  #service: chatra
+  #service: tidio
+  text: Chat # button text, change it as you wish
 
 # ---------------------------------------------------------------
 # Post Settings
@@ -598,7 +608,6 @@ gitment:
 
 # Gitalk
 # Demo: https://gitalk.github.io
-# Reference: https://asdfv1929.github.io/2018/01/20/gitalk/, https://liujunzhou.top/2018/8/10/gitalk-error/
 gitalk:
   enable: false
   github_id:  # Github repo owner
@@ -642,7 +651,6 @@ likely:
 
 # NeedMoreShare2
 # Dependencies: https://github.com/theme-next/theme-next-needmoreshare2
-# See: https://github.com/revir/need-more-share2, https://github.com/DzmVasileusky/needShareButton
 # iconStyle: default | box
 # boxForm: horizontal | vertical
 # position: top / middle / bottom + Left / Center / Right
@@ -696,8 +704,7 @@ needmoreshare2:
 
 # Post widgets & FB/VK comments settings.
 # ---------------------------------------------------------------
-# Facebook SDK Support.
-# https://github.com/iissnan/hexo-theme-next/pull/410
+# Facebook SDK Support
 facebook_sdk:
   enable:       false
   app_id:       #<app_id>
@@ -828,6 +835,21 @@ reading_progress:
   color: "#37c6c0"
   height: 2px
 
+# Chatra Support
+# See: https://chatra.io
+# Dashboard: https://app.chatra.io/settings/general
+chatra:
+  enable: false
+  async: true
+  id: # visit Dashboard to get your ChatraID
+  #embed: # unfinished experimental feature for developers, See: https://chatra.io/help/api/#injectto
+
+# Tidio Support
+# See: https://www.tidiochat.com
+# Dashboard: https://www.tidiochat.com/panel/dashboard
+tidio:
+  enable: false
+  key: # Public Key, get it from Dashboard, See: https://www.tidiochat.com/panel/settings/developer
 
 # ---------------------------------------------------------------
 # Tags Settings
@@ -980,7 +1002,7 @@ vendors:
   # jquery: //cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js
   jquery:
 
-  # Internal version: 2.1.5
+  # Internal version: 2.1.5 & 3.5.6
   # See: https://fancyapps.com/fancybox
   # Example:
   # fancybox: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js

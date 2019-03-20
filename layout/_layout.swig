@@ -120,6 +120,8 @@
   {% include '_third-party/pangu.swig' %}
   {% include '_third-party/bookmark.swig' %}
   {% include '_third-party/copy-code.swig' %}
+  {% include '_third-party/chatra.swig' %}
+  {% include '_third-party/tidio.swig' %}
   {% include '_third-party/liam/crash_title_cheat.swig' %}
 </body>
 </html>

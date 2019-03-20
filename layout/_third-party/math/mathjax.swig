@@ -63,14 +63,3 @@ $(document).ready(function(){
 </script>
 
 <script src="{{ theme.math.mathjax.cdn }}"></script>
-
-<style>
-.has-jax {
-  overflow-x: auto;
-  overflow-y: hidden;
-}
-
-li {
-  list-style-position: inside !important;
-}
-</style>
