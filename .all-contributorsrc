@@ -4,7 +4,7 @@
   "repoType": "github",
   "repoHost": "https://github.com",
   "files": [
-    "README.md"
+    "docs/AUTHORS.md"
   ],
   "imageSize": 100,
   "commit": true,
@@ -135,8 +135,7 @@
         "code",
         "doc",
         "review",
-        "test",
-        "projectManagement"
+        "test"
       ]
     },
     {
