@@ -4,6 +4,10 @@
   -webkit-overflow-scrolling: touch;
 }
 
+.highlight .table-container {
+  margin: 0px;
+}
+
 table {
   width: $table-width;
   border-collapse: collapse;
@@ -11,7 +15,7 @@ table {
   font-size: $table-font-size;
 }
 
-table>tbody>tr {
+table > tbody > tr {
   &:nth-of-type(odd) { background-color: $table-row-odd-bg-color; }
   &:hover { background-color: $table-row-hover-bg-color; }
 }
@@ -33,4 +37,6 @@ th {
   font-weight: $table-th-font-weight;
 }
 
-td { border-bottom-width: 1px; }
+td {
+  border-bottom-width: 1px;
+}
