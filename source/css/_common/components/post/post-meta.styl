@@ -2,11 +2,10 @@
   margin: 3px 0 60px 0;
   color: $grey-dark;
   font-family: $font-family-posts;
-  font-size: 12px;
   text-align: center;
 
   .post-description {
-    font-size: 14px;
+    font-size: $font-size-small;
     margin-top: 2px;
   }
 
@@ -16,12 +15,16 @@
   }
 }
 
-.post-meta-divider {
+.post-meta .post-meta-item + .post-meta-item::before {
+  content: "|";
   margin: 0 .5em;
 }
 
-.post-meta .post-meta-item + .post-meta-item::before {
-  content: "|";
+.post-meta .post-meta-item {
+  font-size: $font-size-smallest;
+}
+
+.post-meta-divider {
   margin: 0 .5em;
 }
 
@@ -34,6 +37,6 @@
 
 .post-meta-item-text {
   +tablet-mobile() {
-    hide();
+    display: none;
   }
 }

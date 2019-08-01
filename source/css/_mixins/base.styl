@@ -64,15 +64,15 @@ desktop-largest() {
   }
 }
 
-circle() {
+border-radius: 50% {
   border-radius: 50%;
 }
 
-hide() {
+display: none {
   display: none;
 }
 
-show() {
+display: block {
   display: block;
 }
 
@@ -102,4 +102,11 @@ disable-touch-hover() {
       background: none;
     }
   }
+}
+
+disable-user-select() {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
