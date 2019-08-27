@@ -26,7 +26,7 @@
 </div>
 
 {% if theme.busuanzi_count.adjustment.enable %}
-<script src="{{ url_for(theme.js) }}/src/liam/tools.js"></script>
+<script src="{{ url_for(theme.js) }}/liam/tools.js"></script>
 <script>
   ready(function() {
     {% if theme.busuanzi_count.total_visitors %}
