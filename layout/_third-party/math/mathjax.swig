@@ -1,6 +1,7 @@
+{%- set mhchem_uri = theme.vendors.mhchem | default('//cdn.jsdelivr.net/npm/mathjax-mhchem@3') %}
 <script type="text/x-mathjax-config">
   {%- if theme.math.mathjax.mhchem %}
-    MathJax.Ajax.config.path['mhchem'] = '{{ theme.math.mathjax.mhchem }}';
+    MathJax.Ajax.config.path['mhchem'] = '{{ mhchem_uri }}';
   {%- endif %}
 
   MathJax.Hub.Config({
@@ -46,6 +47,12 @@
     }
   });
 </script>
+{%- set mathjax_uri = theme.vendors.mathjax | default('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML') %}
+<script>
+  NexT.utils.getScript('{{ mathjax_uri }}', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
 
 <script type="text/javascript">
 $(document).ready(function(){
@@ -54,19 +61,20 @@ $(document).ready(function(){
     if (match) {
       $(this).replaceWith("<span class=hpl_mathjax_inline>" + $(this).html() + "</span>");
       MathJax.Hub.Queue(["Typeset",MathJax.Hub,$(this).get(0)]);
+      return;
     }
     match = /^\$\$/.exec($(this).html());
     if (match) {
       $(this).replaceWith("<span class=hpl_mathjax_inline>" + $(this).html() + "</span>");
       MathJax.Hub.Queue(["Typeset",MathJax.Hub,$(this).get(0)]);
+      return;
     }
     match = /^\\begin/.exec($(this).html());
     if (match) {
       $(this).replaceWith("<span class=hpl_mathjax_inline>" + $(this).html() + "</span>");
       MathJax.Hub.Queue(["Typeset",MathJax.Hub,$(this).get(0)]);
+      return;
     }
   });
 });
 </script>
-
-<script src="{{ theme.math.mathjax.cdn }}"></script>

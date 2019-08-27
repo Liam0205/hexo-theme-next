@@ -80,10 +80,16 @@ footer:
     # Version info of NexT after scheme info (vX.X.X).
     version: true
 
-  # Beian ICP information for Chinese users. See: http://www.beian.miit.gov.cn
+  # Beian ICP and gongan information for Chinese users. See: http://www.beian.miit.gov.cn, http://www.beian.gov.cn
   beian:
     enable: false
     icp:
+    # The digit in the num of gongan beian.
+    gongan_id:
+    # The full num of gongan beian.
+    gongan_num:
+    # The icon for gongan beian. See: http://www.beian.gov.cn/portal/download
+    gongan_icon_url:
 
 # Creative Commons 4.0 International License.
 # See: https://creativecommons.org/share-your-work/licensing-types-examples
@@ -208,10 +214,12 @@ social_icons:
   transition: false
 
 # Blog rolls
-links_icon: link
-links_title: Links
-links_layout: block
-#links_layout: inline
+links_settings:
+  icon: link
+  title: Links
+  # Available values: block | inline
+  layout: block
+
 links:
   #Title: http://example.com
 
@@ -260,13 +268,6 @@ sidebar:
   # Enable sidebar on narrow view (only for Muse | Mist).
   onmobile: false
 
-back2top:
-  enable: true
-  # Back to top in sidebar.
-  sidebar: false
-  # Scroll percent label in b2t button.
-  scrollpercent: false
-
 # A button to open designated chat widget in sidebar.
 # Firstly, you need enable the chat service you want to activate its sidebar button.
 chat:
@@ -285,13 +286,10 @@ chat:
 # Automatically scroll page to section which is under <!-- more --> mark.
 scroll_to_more: true
 
-# Automatically saving scroll position on each post / page in cookies.
-save_scroll: false
-
 # Automatically excerpt description in homepage as preamble text.
 excerpt_description: true
 
-# Automatically Excerpt (Not recommend).
+# Automatically excerpt (Not recommend).
 # Use <!-- more --> in the post to control excerpt accurately.
 auto_excerpt:
   enable: false
@@ -387,7 +385,6 @@ tagcloud:
 # To get api_key: https://console.developers.google.com
 # Create & manage a public Google calendar: https://support.google.com/calendar/answer/37083
 calendar:
-  enable: false
   calendar_id: <required> # Your Google account E-Mail
   api_key: <required>
   orderBy: startTime
@@ -435,6 +432,30 @@ codeblock:
     show_result: false
     # Available values: default | flat | mac
     style:
+
+back2top:
+  enable: true
+  # Back to top in sidebar.
+  sidebar: false
+  # Scroll percent label in b2t button.
+  scrollpercent: false
+
+# Reading progress bar
+reading_progress:
+  enable: false
+  # Available values: top | bottom
+  position: top
+  color: "#37c6c0"
+  height: 2px
+
+# Bookmark Support
+bookmark:
+  enable: false
+  # Customize the color of the bookmark.
+  color: "#222"
+  # If auto, save the reading progress when closing the page or clicking the bookmark-icon.
+  # If manual, only save it by clicking the bookmark-icon.
+  save: auto
 
 # `Follow me on GitHub` banner in the top-right corner.
 github_banner:
@@ -507,7 +528,7 @@ font:
 #   - CDNJS (cdnjs.cloudflare.com), provided by cloudflare
 # ---------------------------------------------------------------
 
-# Math Equations Render Support
+# Math Formulas Render Support
 math:
   enable: false
 
@@ -516,54 +537,41 @@ math:
   # If you set it to false, it will load mathjax / katex srcipt EVERY PAGE.
   per_page: true
 
-  engine: mathjax
-  #engine: katex
-
   # hexo-renderer-pandoc (or hexo-renderer-kramed) required for full MathJax support.
   mathjax:
-    cdn: //cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML
-    #cdn: //cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML
-
+    enable: false
     # See: https://mhchem.github.io/MathJax-mhchem/
-    #mhchem: //cdn.jsdelivr.net/npm/mathjax-mhchem@3
-    #mhchem: //cdnjs.cloudflare.com/ajax/libs/mathjax-mhchem/3.3.0
+    mhchem: false
 
   # hexo-renderer-markdown-it-plus (or hexo-renderer-markdown-it with markdown-it-katex plugin) required for full Katex support.
   katex:
-    cdn: //cdn.jsdelivr.net/npm/katex@0/dist/katex.min.css
-    #cdn: //cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css
+    enable: false
+    # See: https://github.com/KaTeX/KaTeX/tree/master/contrib/copy-tex
+    copy_tex: false
 
-    copy_tex:
-      # See: https://github.com/KaTeX/KaTeX/tree/master/contrib/copy-tex
-      enable: false
-      copy_tex_js: //cdn.jsdelivr.net/npm/katex@0/dist/contrib/copy-tex.min.js
-      copy_tex_css: //cdn.jsdelivr.net/npm/katex@0/dist/contrib/copy-tex.min.css
+# Easily enable fast Ajax navigation on your website.
+# Dependencies: https://github.com/theme-next/theme-next-pjax
+# For moreinformation: https://github.com/MoOx/pjax
+pjax: false
 
-# Fancybox. There is support for old version 2 and new version 3.
-# Choose only one variant, do not need to install both.
-# To install 2.x: https://github.com/theme-next/theme-next-fancybox
-# To install 3.x: https://github.com/theme-next/theme-next-fancybox3
+# FancyBox is a tool that offers a nice and elegant way to add zooming functionality for images.
 # For more information: https://fancyapps.com/fancybox
 fancybox: false
 
 # A JavaScript library for zooming images like Medium.
 # Do not enable both `fancybox` and `mediumzoom`.
-# Dependencies: https://github.com/theme-next/theme-next-mediumzoom
 # For more information: https://github.com/francoischalifour/medium-zoom
 mediumzoom: false
 
 # Vanilla JavaScript plugin for lazyloading images.
-# Dependencies: https://github.com/theme-next/theme-next-lazyload
 # For more information: https://github.com/ApoorvSaxena/lozad.js
 lazyload: false
 
 # Pangu Support
-# Dependencies: https://github.com/theme-next/theme-next-pangu
 # For more information: https://github.com/vinta/pangu.js
 pangu: false
 
 # Quicklink Support
-# Dependencies: https://github.com/theme-next/theme-next-quicklink
 # For more information: https://github.com/GoogleChromeLabs/quicklink
 quicklink:
   enable: false
@@ -585,26 +593,26 @@ quicklink:
   # See: https://github.com/GoogleChromeLabs/quicklink#custom-ignore-patterns
   ignores:
 
-# Bookmark Support
-# Dependencies: https://github.com/theme-next/theme-next-bookmark
-bookmark:
-  enable: false
-  # If auto, save the reading position when closing the page or clicking the bookmark-icon.
-  # If manual, only save it by clicking the bookmark-icon.
-  save: auto
-
-# Reading progress bar
-# Dependencies: https://github.com/theme-next/theme-next-reading-progress
-reading_progress:
-  enable: false
-  color: "#37c6c0"
-  height: 2px
-
 
 # ---------------------------------------------------------------
-# Comments and Widgets
-# See: https://theme-next.org/docs/third-party-services/comments-and-widgets
+# Comments Settings
+# See: https://theme-next.org/docs/third-party-services/comments
 # ---------------------------------------------------------------
+
+# Multiple Comment System Support
+comments:
+  # Available values: tabs | buttons
+  style: tabs
+  # Choose a comment system to be displayed by default.
+  # Available values: changyan | disqus | disqusjs | facebook_comments_plugin | gitalk | livere | valine | vkontakte
+  active:
+  # Setting `true` means remembering the comment system selected by the visitor.
+  storage: true
+  # Modify icons and texts for any style, here are some examples.
+  nav:
+    #disqus: disqus
+    #facebook_comments_plugin: <i class="fa fa-facebook-official" aria-hidden="true"></i> facebook
+    #gitalk: Load Gitalk
 
 # Disqus
 disqus:
@@ -657,7 +665,7 @@ livere_uid: # <your_uid>
 
 # Gitalk
 # Demo: https://gitalk.github.io
-# For more information: https://github.com/gitalk/gitalk, https://github.com/emn178/js-md5
+# For more information: https://github.com/gitalk/gitalk
 gitalk:
   enable: false
   github_id: # GitHub repo owner
@@ -673,85 +681,10 @@ gitalk:
 
 
 # ---------------------------------------------------------------
-# Content Sharing Services
-# See: https://theme-next.org/docs/third-party-services/content-sharing-services
+# Post Widgets & Content Sharing Services
+# See: https://theme-next.org/docs/third-party-services/post-widgets
 # ---------------------------------------------------------------
 
-# AddThis Share. See: https://www.addthis.com
-# Go to https://www.addthis.com/dashboard to customize your tools.
-add_this_id:
-
-# Likely Share
-# For more information: https://ilyabirman.net/projects/likely/, https://github.com/ilyabirman/Likely
-# Likely supports four looks, nine social networks, any button text.
-# You are free to modify the text value and order of any network.
-likely:
-  enable: false
-  look: normal # Available values: normal | light | small | big
-  networks:
-    twitter: Tweet
-    facebook: Share
-    linkedin: Link
-    gplus: Plus
-    vkontakte: Share
-    odnoklassniki: Class
-    telegram: Send
-    whatsapp: Send
-    pinterest: Pin
-
-# NeedMoreShare2
-# Dependencies: https://github.com/theme-next/theme-next-needmoreshare2
-# For more information: https://github.com/revir/need-more-share2
-# iconStyle: default | box
-# boxForm: horizontal | vertical
-# position: top / middle / bottom + Left / Center / Right
-# networks:
-# Weibo | Wechat | Douban | QQZone | Twitter | Facebook | Linkedin | Mailto | Reddit | Delicious | StumbleUpon | Pinterest
-# GooglePlus | Tumblr | GoogleBookmarks | Newsvine | Evernote | Friendfeed | Vkontakte | Odnoklassniki | Mailru
-needmoreshare2:
-  enable: false
-  postbottom:
-    enable: false
-    options:
-      iconStyle: box
-      boxForm: horizontal
-      position: bottomCenter
-      networks: Weibo,Wechat,Douban,QQZone,Twitter,Facebook
-  float:
-    enable: false
-    options:
-      iconStyle: box
-      boxForm: horizontal
-      position: middleRight
-      networks: Weibo,Wechat,Douban,QQZone,Twitter,Facebook
-
-
-# ---------------------------------------------------------------
-# Statistics and Analytics
-# See: https://theme-next.org/docs/third-party-services/statistics-and-analytics
-# ---------------------------------------------------------------
-
-# Baidu Analytics
-baidu_analytics: # <app_id>
-
-# Growingio Analytics
-# Copyright 2015-2018 GrowingIO, Inc. More info available at https://www.growingio.com
-growingio_analytics: # <project_id>
-
-# Google Analytics
-google_analytics:
-  tracking_id: # <app_id>
-  localhost_ignored: true
-
-# CNZZ count
-cnzz_siteid:
-
-# Application Insights
-# See: https://azure.microsoft.com/en-us/services/application-insights
-application_insights:
-
-# Post widgets & FB/VK comments settings.
-# ---------------------------------------------------------------
 # Facebook SDK Support
 facebook_sdk:
   enable:       false
@@ -784,7 +717,35 @@ rating:
   enable: false
   id:     # <app_id>
   color:  fc6423
+
+# AddThis Share. See: https://www.addthis.com
+# Go to https://www.addthis.com/dashboard to customize your tools.
+add_this_id:
+
+
 # ---------------------------------------------------------------
+# Statistics and Analytics
+# See: https://theme-next.org/docs/third-party-services/statistics-and-analytics
+# ---------------------------------------------------------------
+
+# Baidu Analytics
+baidu_analytics: # <app_id>
+
+# Growingio Analytics
+# Copyright 2015-2018 GrowingIO, Inc. More info available at https://www.growingio.com
+growingio_analytics: # <project_id>
+
+# Google Analytics
+google_analytics:
+  tracking_id: # <app_id>
+  localhost_ignored: true
+
+# CNZZ count
+cnzz_siteid:
+
+# Application Insights
+# See: https://azure.microsoft.com/en-us/services/application-insights
+application_insights:
 
 # Show number of visitors to each article.
 # You can visit https://leancloud.cn to get AppID and AppKey.
@@ -806,7 +767,6 @@ firestore:
   collection: articles # Required, a string collection name to access firestore database
   apiKey: # Required
   projectId: # Required
-  bluebird: false # Enable this if you want to include bluebird 3.5.1 (core version) Promise polyfill
 
 # Show Views / Visitors of the website / page with busuanzi.
 # Get more information on http://ibruce.info/2015/04/04/busuanzi
@@ -832,7 +792,6 @@ tencent_mta: # <app_id>
 # ---------------------------------------------------------------
 
 # Algolia Search
-# Dependencies: https://github.com/theme-next/theme-next-algolia-instant-search
 # For more information: https://www.algolia.com
 algolia_search:
   enable: false
@@ -843,8 +802,8 @@ algolia_search:
     hits_empty: "We didn't find any results for the search: ${query}"
     hits_stats: "${hits} results found in ${time} ms"
 
-# Local search
-# Dependencies: https://github.com/theme-next/hexo-generator-searchdb
+# Local Search
+# Dependencies: https://github.com/wzpan/hexo-generator-search
 local_search:
   enable: false
   # If auto, trigger search by changing input.
@@ -904,7 +863,6 @@ note:
 
 # Tabs tag
 tabs:
-  enable: true
   transition:
     tabs: false
     labels: true
@@ -919,17 +877,12 @@ pdf:
   enable: false
   # Default height
   height: 500px
-  pdfobject:
-    cdn: //cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js
-    #cdn: //cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.min.js
 
 # Mermaid tag
 mermaid:
   enable: false
   # Available themes: default | dark | forest | neutral
   theme: forest
-  cdn: //cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js
-  #cdn: //cdnjs.cloudflare.com/ajax/libs/mermaid/8.0.0/mermaid.min.js
 
 
 # ---------------------------------------------------------------
@@ -980,11 +933,11 @@ three:
 # For more information: https://github.com/hustcc/canvas-nest.js
 canvas_nest:
   enable: false
-  onmobile: true # display on mobile or not
+  onmobile: true # Display on mobile or not
   color: "0,0,255" # RGB values, use `,` to separate
-  opacity: 0.5 # the opacity of line: 0~1
+  opacity: 0.5 # The opacity of line: 0~1
   zIndex: -1 # z-index property of the background
-  count: 99 # the number of lines
+  count: 99 # The number of lines
 
 # Canvas-ribbon
 # Dependencies: https://github.com/theme-next/theme-next-canvas-ribbon
@@ -1021,7 +974,31 @@ vendors:
   # fontawesome: //cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
   fontawesome:
 
-  # Internal version: 2.1.5 & 3.5.7
+  # MathJax
+  # Example:
+  # mathjax: //cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+  # mathjax: //cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML
+  # mhchem: //cdn.jsdelivr.net/npm/mathjax-mhchem@3
+  # mhchem: //cdnjs.cloudflare.com/ajax/libs/mathjax-mhchem/3.3.0
+  mathjax:
+  mhchem:
+
+  # KaTeX
+  # Example:
+  # katex: //cdn.jsdelivr.net/npm/katex@0/dist/katex.min.css
+  # katex: //cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css
+  # copy_tex_js: //cdn.jsdelivr.net/npm/katex@0/dist/contrib/copy-tex.min.js
+  # copy_tex_css: //cdn.jsdelivr.net/npm/katex@0/dist/contrib/copy-tex.min.css
+  katex:
+  copy_tex_js:
+  copy_tex_css:
+
+  # Internal version: 0.2.8
+  # Example:
+  # pjax: //cdn.jsdelivr.net/gh/theme-next/theme-next-pjax@0/pjax.min.js
+  pjax:
+
+  # FancyBox
   # Example:
   # fancybox: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js
   # fancybox: //cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js
@@ -1030,37 +1007,27 @@ vendors:
   fancybox:
   fancybox_css:
 
-  # Internal version: 1.0.4
+  # Medium-zoom
   # Example:
   # mediumzoom: //cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js
   mediumzoom:
 
-  # Internal version: 1.10.0
+  # Lazyload
   # Example:
   # lazyload: //cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js
   # lazyload: //cdnjs.cloudflare.com/ajax/libs/lozad.js/1.9.0/lozad.min.js
   lazyload:
 
-  # Internal version: 4.0.7
+  # Pangu
   # Example:
   # pangu: //cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js
   # pangu: //cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js
   pangu:
 
-  # Internal version: 1.0.0
+  # Quicklink
   # Example:
   # quicklink: //cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js
   quicklink:
-
-  # Internal version: 1.0.0
-  # Example:
-  # bookmark: //cdn.jsdelivr.net/gh/theme-next/theme-next-bookmark@1/bookmark.min.js
-  bookmark:
-
-  # Internal version: 1.2.0
-  # Example:
-  # reading_progress: //cdn.jsdelivr.net/gh/theme-next/theme-next-reading-progress@1/reading_progress.min.js
-  reading_progress:
 
   # DisqusJS
   # Example:
@@ -1069,41 +1036,37 @@ vendors:
   disqusjs_js:
   disqusjs_css:
 
-  # valine
+  # Valine
   # Example:
   # valine: //cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js
   # valine: //cdnjs.cloudflare.com/ajax/libs/valine/1.3.4/Valine.min.js
   valine:
 
-  # gitalk & js-md5
+  # Gitalk
   # Example:
   # gitalk_js: //cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js
   # gitalk_css: //cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css
-  # md5: //cdn.jsdelivr.net/npm/js-md5@0/src/md5.min.js
   gitalk_js:
   gitalk_css:
-  md5:
 
-  # likely
+  # Algolia Search
   # Example:
-  # likely_js: //cdn.jsdelivr.net/npm/ilyabirman-likely@2/release/likely.js
-  # likely_css: //cdn.jsdelivr.net/npm/ilyabirman-likely@2/release/likely.css
-  likely_js:
-  likely_css:
-
-  # Internal version: 1.0.0
-  # Example:
-  # needmoreshare2_js: //cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js
-  # needmoreshare2_css: //cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css
-  needmoreshare2_js:
-  needmoreshare2_css:
-
-  # Internal version: 2.10.4
-  # Example:
-  # algolia_instant_js: //cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.js
+  # algolia_instant_js: //cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.js
   # algolia_instant_css: //cdn.jsdelivr.net/npm/instantsearch.js@2/dist/instantsearch.min.css
   algolia_instant_js:
   algolia_instant_css:
+
+  # PDF
+  # Example:
+  # pdfobject: //cdn.jsdelivr.net/npm/pdfobject@2/pdfobject.min.js
+  # pdfobject: //cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.min.js
+  pdfobject:
+
+  # Mermaid
+  # Example:
+  # mermaid: //cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js
+  # mermaid: //cdnjs.cloudflare.com/ajax/libs/mermaid/8.0.0/mermaid.min.js
+  mermaid:
 
   # Internal version: 1.2.1
   # Example:

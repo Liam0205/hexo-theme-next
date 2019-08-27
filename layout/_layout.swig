@@ -9,38 +9,30 @@
 {%- set author = __('author') !== 'author' && __('author') || config.author %}
 {%- set description = __('description') !== 'description' && __('description') || config.description %}
 
-{%- set html_class = 'theme-next ' + theme.scheme %}
-{%- if theme.motion.enable %}
-  {%- set html_class = html_class + ' use-motion' %}
+{%- if theme.pjax %}
+  {%- set pjax = ' pjax' %}
 {%- endif %}
 
-<html class="{{ html_class | lower }}" lang="{{ config.language }}">
+<html lang="{{ config.language }}">
 <head>
   {{ partial('_partials/head/head.swig', {}, {cache: theme.cache.enable}) }}
   {% include '_partials/head/head-unique.swig' %}
-  {%- for inject_item in theme.injects.head %}
-    {{ partial(inject_item.layout, inject_item.locals, inject_item.options) }}
-  {%- endfor %}
+  {{- next_inject('head') }}
   <title>{% block title %}{% endblock %}</title>
-  {% include '_third-party/analytics/index.swig' %}
+  <meta name="generator" content="Hexo {{ hexo_env('version') }}">
+  {{ partial('_third-party/analytics/index.swig', {}, {cache: theme.cache.enable}) }}
   {{ partial('_scripts/noscript.swig', {}, {cache: theme.cache.enable}) }}
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="{{ page.lang || page.language || config.language }}">
-
-  {%- set container_class = 'container' %}
-  {%- if theme.sidebar.position %}
-    {%- set container_class = container_class + ' sidebar-position-' + theme.sidebar.position %}
-  {%- endif %}
-
-  <div class="{{ container_class }} {% block page_class %}{% endblock %}">
+  <div class="container{%- if theme.motion.enable %} use-motion{%- endif %}">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner">{% include '_partials/header/index.swig' %}</div>
     </header>
 
-    {{ partial('_partials/github-banner.swig', {}, {cache: theme.cache.enable}) }}
+    {{ partial('_partials/widgets.swig', {}, {cache: theme.cache.enable}) }}
 
     <main id="main" class="main">
       <div class="main-inner">
@@ -62,41 +54,27 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         {{ partial('_partials/footer.swig', {}, {cache: theme.cache.enable}) }}
-        {% include '_partials/analytics/index.swig' %}
+        {{ partial('_partials/analytics/index.swig', {}, {cache: theme.cache.enable}) }}
         {% block footer %}{% endblock %}
       </div>
     </footer>
-
-    {%- if theme.back2top.enable and not theme.back2top.sidebar %}
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        {%- if theme.back2top.scrollpercent %}
-          <span id="scrollpercent"><span>0</span>%</span>
-        {%- endif %}
-      </div>
-    {%- endif %}
-
-    {% include '_partials/share/index.swig' %}
   </div>
 
-  {% include '_scripts/vendors.swig' %}
-  {% include '_scripts/commons.swig' %}
+  {{ partial('_scripts/index.swig', {}, {cache: theme.cache.enable}) }}
+  {{ partial('_third-party/index.swig', {}, {cache: theme.cache.enable}) }}
 
-  {%- set scheme_script = '_scripts/schemes/' + theme.scheme | lower + '.swig' %}
-  {% include scheme_script %}
+  {%- if theme.pjax %}
+    <div id="pjax">
+  {%- endif %}
 
-  {% block script_extra %}{% endblock %}
+  {% include '_third-party/math/index.swig' %}
+  {% include '_third-party/quicklink.swig' %}
+  {% include '_third-party/vkontakte-api.swig' %}
 
-  {% include '_scripts/next-boot.swig' %}
-  {% include '_scripts/scroll-cookie.swig' %}
-  {% include '_scripts/exturl.swig' %}
-  {% include '_scripts/three.swig' %}
+  {{- next_inject('bodyEnd') }}
 
-  {% include '_third-party/index.swig' %}
-
-  {%- for inject_item in theme.injects.bodyEnd %}
-    {{ partial(inject_item.layout, inject_item.locals, inject_item.options) }}
-  {%- endfor %}
-
+  {%- if theme.pjax %}
+    </div>
+  {%- endif %}
 </body>
 </html>
