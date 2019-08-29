@@ -60,7 +60,9 @@ function yuuki_query_all_nodes_as_array(selector) {
 }
 
 function replace_code_to_span(node) {
-  match = /^\$(.*)\$$/.exec(node.textContent) || /^\$\$/.exec(node.textContent) || /^\\begin/.exec(node.textContent);
+  match = /^\$(.*)\$$/.exec(node.textContent) ||
+          /^\$\$(.*)\$\$$/ms.exec(node.textContent) ||
+          /^\\begin\{.+\}(.*)\\end\{.+\}/ms.exec(node.textContent);
   if (match) {
     var parent = node.parentNode;
     var replacement = document.createElement('span');
