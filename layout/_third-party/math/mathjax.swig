@@ -57,23 +57,10 @@
 <script type="text/javascript">
 $(document).ready(function(){
   $("code").map(function(){
-    match = /^\$(.*)\$$/.exec($(this).html());
+    match = /^\$(.*)\$$/.exec($(this).html()) || /^\$\$/.exec($(this).html()) || /^\\begin/.exec($(this).html());
     if (match) {
       $(this).replaceWith("<span class=hpl_mathjax_inline>" + $(this).html() + "</span>");
       MathJax.Hub.Queue(["Typeset",MathJax.Hub,$(this).get(0)]);
-      return;
-    }
-    match = /^\$\$/.exec($(this).html());
-    if (match) {
-      $(this).replaceWith("<span class=hpl_mathjax_inline>" + $(this).html() + "</span>");
-      MathJax.Hub.Queue(["Typeset",MathJax.Hub,$(this).get(0)]);
-      return;
-    }
-    match = /^\\begin/.exec($(this).html());
-    if (match) {
-      $(this).replaceWith("<span class=hpl_mathjax_inline>" + $(this).html() + "</span>");
-      MathJax.Hub.Queue(["Typeset",MathJax.Hub,$(this).get(0)]);
-      return;
     }
   });
 });
