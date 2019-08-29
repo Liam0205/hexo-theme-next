@@ -55,7 +55,7 @@
 </script>
 
 <script type="text/javascript">
-$(document).ready(function(){
+document.addEventListener('DOMContentLoaded', function(){
   $("code").map(function(){
     match = /^\$(.*)\$$/.exec($(this).html()) || /^\$\$/.exec($(this).html()) || /^\\begin/.exec($(this).html());
     if (match) {
