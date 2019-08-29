@@ -55,13 +55,23 @@
 </script>
 
 <script type="text/javascript">
-document.addEventListener('DOMContentLoaded', function(){
-  $("code").map(function(){
-    match = /^\$(.*)\$$/.exec($(this).html()) || /^\$\$/.exec($(this).html()) || /^\\begin/.exec($(this).html());
-    if (match) {
-      $(this).replaceWith("<span class=hpl_mathjax_inline>" + $(this).html() + "</span>");
-      MathJax.Hub.Queue(["Typeset",MathJax.Hub,$(this).get(0)]);
-    }
-  });
+function yuuki_query_all_nodes_as_array(selector) {
+  return Array.prototype.slice.call(document.querySelectorAll(selector), 0);
+}
+
+function replace_code_to_span(node) {
+  match = /^\$(.*)\$$/.exec(node.textContent) || /^\$\$/.exec(node.textContent) || /^\\begin/.exec(node.textContent);
+  if (match) {
+    var parent = node.parentNode;
+    var replacement = document.createElement('span');
+    replacement.class = "hpl_mathjax_inline"
+    replacement.textContent = node.textContent;
+    parent.replaceChild(replacement, node);
+    // MathJax.Hub.Queue(["Typeset",MathJax.Hub,$(this).get(0)]);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  yuuki_query_all_nodes_as_array("code").map(replace_code_to_span);
 });
 </script>
