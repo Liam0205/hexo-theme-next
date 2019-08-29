@@ -28,7 +28,7 @@
 {% if theme.busuanzi_count.adjustment.enable %}
 <script src="{{ url_for(theme.js) }}/liam/tools.js"></script>
 <script>
-  ready(function() {
+  document.addEventListener('DOMContentLoaded', function() {
     {% if theme.busuanzi_count.total_visitors %}
     var intervalTotalVisitors = setInterval(fixTotalVisitors, 100);
     var offsetTotalVisitors   = parseInt({{ theme.busuanzi_count.adjustment.offset_total_visitors }});
