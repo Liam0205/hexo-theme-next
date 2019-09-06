@@ -26,14 +26,13 @@
 </div>
 
 {% if theme.busuanzi_count.adjustment.enable %}
-<script src="{{ url_for(theme.js) }}/liam/tools.js"></script>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
+  window.addEventListener('DOMContentLoaded', function() {
     {% if theme.busuanzi_count.total_visitors %}
     var intervalTotalVisitors = setInterval(fixTotalVisitors, 100);
     var offsetTotalVisitors   = parseInt({{ theme.busuanzi_count.adjustment.offset_total_visitors }});
     function fixTotalVisitors() {
-      if (getStyleByID("busuanzi_container_site_uv", "display") != "none") {
+      if (document.getElementById('busuanzi_container_site_uv').style.display != "none") {
         clearInterval(intervalTotalVisitors);
         var el = document.getElementById("busuanzi_value_site_uv");
         var value = parseInt(el.innerHTML) + offsetTotalVisitors;
@@ -45,7 +44,7 @@
     var intervalTotalViews = setInterval(fixTotalViews, 100);
     var offsetTotalViews   = parseInt({{ theme.busuanzi_count.adjustment.offset_total_views }});
     function fixTotalViews() {
-      if (getStyleByID("busuanzi_container_site_pv", "display") != "none") {
+      if (document.getElementById('busuanzi_container_site_pv').style.display != "none") {
         clearInterval(intervalTotalViews);
         var el = document.getElementById("busuanzi_value_site_pv");
         var value = parseInt(el.innerHTML) + offsetTotalViews;
