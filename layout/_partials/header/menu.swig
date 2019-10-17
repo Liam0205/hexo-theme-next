@@ -1,4 +1,4 @@
-{% import '../../_macro/menu/menu-item.swig' as menu_item %}
+{% import 'menu-item.swig' as menu_item %}
 
 {%- if theme.menu %}
   <ul id="menu" class="menu">
@@ -25,7 +25,7 @@
       <li class="menu-item menu-item-search">
         <a href="javascript:;" class="popup-trigger">
         {%- if theme.menu_settings.icons %}
-          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>{#
+          <i class="fa fa-search fa-fw"></i>{#
         #}{%- endif %}{#
         #}{{ __('menu.search') }}{#
       #}</a>

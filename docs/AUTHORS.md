@@ -151,6 +151,14 @@ Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds
   <tr>
     <td align="center"><a href="https://littleylv.github.io/"><img src="https://avatars2.githubusercontent.com/u/16814596?v=4" width="100px;" alt="Siuwing Leoi"/><br /><sub><b>Siuwing Leoi</b></sub></a><br /><a href="https://github.com/theme-next/hexo-theme-next/issues?q=author%3Alittleylv" title="Bug reports">🐛</a></td>
     <td align="center"><a href="https://github.com/MartinMa94"><img src="https://avatars1.githubusercontent.com/u/25997737?v=4" width="100px;" alt="Martin Ma"/><br /><sub><b>Martin Ma</b></sub></a><br /><a href="https://github.com/theme-next/hexo-theme-next/commits?author=MartinMa94" title="Code">💻</a> <a href="https://github.com/theme-next/hexo-theme-next/commits?author=MartinMa94" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://wangjiezhe.com"><img src="https://avatars0.githubusercontent.com/u/5236768?v=4" width="100px;" alt="Jiezhe Wang"/><br /><sub><b>Jiezhe Wang</b></sub></a><br /><a href="https://github.com/theme-next/hexo-theme-next/issues?q=author%3Awangjiezhe" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/sankoshine"><img src="https://avatars2.githubusercontent.com/u/7546269?v=4" width="100px;" alt="SanKo"/><br /><sub><b>SanKo</b></sub></a><br /><a href="https://github.com/theme-next/hexo-theme-next/issues?q=author%3Asankoshine" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://liam.page/en/about"><img src="https://avatars2.githubusercontent.com/u/3348485?v=4" width="100px;" alt="Liam Huang"/><br /><sub><b>Liam Huang</b></sub></a><br /><a href="https://github.com/theme-next/hexo-theme-next/commits?author=Liam0205" title="Code">💻</a></td>
+    <td align="center"><a href="https://maxocull.com"><img src="https://avatars0.githubusercontent.com/u/4708067?v=4" width="100px;" alt="Max O'Cull"/><br /><sub><b>Max O'Cull</b></sub></a><br /><a href="https://github.com/theme-next/hexo-theme-next/commits?author=Maxattax97" title="Code">💻</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/TrumanDu"><img src="https://avatars0.githubusercontent.com/u/16727775?v=4" width="100px;" alt="truman.p.du"/><br /><sub><b>truman.p.du</b></sub></a><br /><a href="https://github.com/theme-next/hexo-theme-next/commits?author=TrumanDu" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/ifmos"><img src="https://avatars3.githubusercontent.com/u/16851606?v=4" width="100px;" alt="Mos"/><br /><sub><b>Mos</b></sub></a><br /><a href="https://github.com/theme-next/hexo-theme-next/commits?author=ifmos" title="Code">💻</a> <a href="#review-ifmos" title="Reviewed Pull Requests">👀</a></td>
   </tr>
 </table>
 

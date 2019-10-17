@@ -26,37 +26,21 @@
       {#################}
       {### PAGE BODY ###}
       {#################}
-      <div class="post-body{%- if page.direction && page.direction.toLowerCase() === 'rtl' %} rtl{%- endif %}">
+      <div class="post-body{%- if page.direction and page.direction.toLowerCase() === 'rtl' %} rtl{%- endif %}">
         {# tagcloud page support #}
         {%- if page.type === 'tags' %}
           <div class="tag-cloud">
             <div class="tag-cloud-title">
-              {%- set visibleTags = 0 %}
-              {%- for tag in site.tags %}
-                {%- if tag.length %}
-                  {%- set visibleTags += 1 %}
-                {%- endif %}
-              {%- endfor %}
-              {{ _p('counter.tag_cloud', visibleTags) }}
+              {{ _p('counter.tag_cloud', site.tags.length) }}
             </div>
             <div class="tag-cloud-tags">
-              {%- if not theme.tagcloud %}
-                {{ tagcloud({min_font: 12, max_font: 30, amount: 200, color: true, start_color: '#ccc', end_color: '#111'}) }}
-              {% else %}
-                {{ tagcloud({min_font: theme.tagcloud.min, max_font: theme.tagcloud.max, amount: theme.tagcloud.amount, color: true, start_color: theme.tagcloud.start, end_color: theme.tagcloud.end}) }}
-              {%- endif %}
+              {{ tagcloud({min_font: theme.tagcloud.min, max_font: theme.tagcloud.max, amount: theme.tagcloud.amount, color: true, start_color: theme.tagcloud.start, end_color: theme.tagcloud.end}) }}
             </div>
           </div>
         {% elif page.type === 'categories' %}
           <div class="category-all-page">
             <div class="category-all-title">
-              {%- set visibleCategories = 0 %}
-              {%- for cat in site.categories %}
-                {%- if cat.length %}
-                  {%- set visibleCategories += 1 %}
-                {%- endif %}
-              {%- endfor %}
-              {{ _p('counter.categories', visibleCategories) }}
+              {{ _p('counter.categories', site.categories.length) }}
             </div>
             <div class="category-all">
               {{ list_categories() }}

@@ -155,17 +155,16 @@ Issues 的标签：使用 `类型`+`内容`+`结果` 的组合
 
 - 类型
     - `Bug`: 检测到需要进行确认的 Bug
-    - `Improvement Need`: 需要改进的 Issue
+    - `Improvement`: 需要改进的 Issue
     - `Feature Request`: 提出了新功能请求的 Issue
-    - `Non English`: 需要多语言维护者参与的 Issue
     - `Discussion`: 需要进行讨论的 Issue
     - `Question`: 提出疑问的 Issue
     - `Meta`: 表明使用条款变更的 Issue
     - `Polls`: 发起投票的 Issue
 - 内容
     - `Roadmap`: 与 NexT 主题发展相关的 Issue
-    - `Hexo`: 与 Hexo 相关的 Issue
-    - `3rd Party Service`: 与第三方服务相关的 Issue
+    - `Hexo`: 与 Hexo 和 Hexo 插件相关的 Issue
+    - `3rd Party Plugin`: 与第三方插件和服务相关的 Issue
     - `Docs`: 需要添加文档说明的 Issue
     - `Configurations`: 与 NexT 主题设置相关的 Issue
     - `CSS`: 与 NexT 主题 CSS 文件相关的 Issue
@@ -190,7 +189,7 @@ Issues 的标签：使用 `类型`+`内容`+`结果` 的组合
 Pull requests 的标签：
 
 - `Breaking Change`: 产生重大变动的 Pull request
-- `External Change`: 针对外部变动进行更新的 Pull request
+- `3rd Party Plugin`: 针对第三方插件和服务进行更新的 Pull request
 - `Bug Fix`: 修复相关 Bug 的 Pull request
 - `Docs`: 添加了文档说明的 Pull request
 - `New Feature`: 添加了新功能的 Pull request
@@ -201,7 +200,6 @@ Pull requests 的标签：
 - `Discussion`: 需要进行讨论的 Pull request
 - `Work in Progress`: 仍在进行改动和完善的 Pull request
 - `Skip Release`: 无需在 Release Note 中展现的 Pull request
-- `v6.x`: 与 NexT v6.x 旧版相关的用于修复和改进的 Pull request
 
 <a name="commit-messages-rules"></a>
 
