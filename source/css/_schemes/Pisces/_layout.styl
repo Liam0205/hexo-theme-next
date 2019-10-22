@@ -27,9 +27,7 @@
   width: $sidebar-desktop;
 
   +desktop-large() {
-    .container & {
-      width: $sidebar-desktop;
-    }
+    width: $sidebar-desktop;
   }
 
   +tablet-mobile() {
@@ -43,7 +41,7 @@
   clearfix();
 }
 
-.container .main-inner {
+.main-inner {
   +tablet-mobile() {
     width: auto;
   }
@@ -55,19 +53,11 @@
   box-shadow: $box-shadow-inner;
   box-sizing: border-box;
   float: right;
-  min-height: 700px;
   padding: $content-desktop-padding;
   width: $content-wrap;
 
-  +tablet() {
+  +tablet-mobile() {
     border-radius: initial;
-    padding: 20px;
-    width: 100%;
-  }
-
-  +mobile() {
-    border-radius: initial;
-    min-height: auto;
     padding: 20px;
     width: 100%;
   }
