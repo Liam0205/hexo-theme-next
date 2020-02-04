@@ -1,20 +1,15 @@
 <h1 align="center">数学公式</h1>
 
 NexT 内部提供数学公式渲染的引擎，这样你就不需要自己手动在模板中引入 JS 或者 CSS；
-只需要将 `next/_config.yml` 中 `math` 的 `enable` 选项改为 `true`，并选择对应的渲染引擎即可：
+只需要选择对应的渲染引擎，并在 `next/_config.yml` 中将其 `enable` 选项改为 `true` 即可。
 
-```yml
-math:
-  enable: true
-```
-
-需要注意的是，仅仅将 `math` 的 `enable` 打开**并不能让你看到数学公式**，你还需要**使用对应的 Hexo 渲染器(Renderer)** 才能真正在博客页面中显示出数学公式。引擎对应使用的 Hexo 渲染器会在引擎相关的部分介绍。
+需要注意的是，仅仅将 `enable` 打开**并不能让你看到数学公式**，你还需要**使用对应的 Hexo 渲染器(Renderer)** 才能真正在博客页面中显示出数学公式。引擎对应使用的 Hexo 渲染器会在引擎相关的部分介绍。
 
 <h2 align="center">提供的渲染引擎</h2>
 
-目前，NexT 提供两种数学公式渲染引擎，分别为 [MathJax](https://www.mathjax.org/) 和 [Katex](https://khan.github.io/KaTeX/)，默认为 MathJax。
+目前，NexT 提供两种数学公式渲染引擎，分别为 [MathJax](https://www.mathjax.org/) 和 [Katex](https://khan.github.io/KaTeX/)。
 
-### MathJax(默认)
+### MathJax
 
 如果你选择使用 MathJax 进行数学公式渲染，你需要使用 [hexo-renderer-pandoc](https://github.com/wzpan/hexo-renderer-pandoc) 或者 [hexo-renderer-kramed](https://github.com/sun11/hexo-renderer-kramed) 这两个渲染器的其中一个。
 
@@ -25,11 +20,10 @@ npm uninstall hexo-renderer-marked
 npm install hexo-renderer-pandoc # 或者 hexo-renderer-kramed
 ```
 
-然后在 `next/_config.yml` 中将 `math` 的 `enable` 打开，并选择 `mathjax` 作为渲染引擎。
+然后在 `next/_config.yml` 中将 `mathjax` 的 `enable` 打开。
 
 ```yml
 math:
-  enable: true
   ...
   mathjax:
     enable: true
@@ -119,12 +113,10 @@ npm install hexo-renderer-markdown-it-plus
 # 或者 hexo-renderer-markdown-it
 ```
 
-
-然后在 `next/_config.yml` 中将 `math` 的 `enable` 打开，并选择 `katex` 作为渲染引擎。
+然后在 `next/_config.yml` 中将 `katex` 的 `enable` 打开。
 
 ```yml
 math:
-  enable: true
   ...
   katex:
     enable: true
@@ -171,10 +163,9 @@ markdown:
    那么文章目录中的这个标题会出现 3 次未渲染的公式代码([#32comment](https://github.com/theme-next/hexo-theme-next/pull/32#issuecomment-359018694))
 6. 如果你在文章 Title 中使用公式，那么公式将不会被渲染。([#32comment](https://github.com/theme-next/hexo-theme-next/pull/32#issuecomment-359142879))
 
+我们目前使用的 Katex 版本为 0.11.1，这里面可能有某些问题是因为 Katex 版本老旧导致的；
 
-我们目前使用的 Katex 版本为 0.7.1，这里面可能有某些问题是因为 Katex 版本老旧导致的；
-
-但是，就像上面所说的，数学公式的渲染必须依靠渲染器来支持，目前的 Katex 相关的渲染器仅支持到 Katex 0.7.1；
+但是，就像上面所说的，数学公式的渲染必须依靠渲染器来支持，目前的 Katex 相关的渲染器仅支持到 Katex 0.11.1；
 
 我们会持续关注相关渲染器的更新，如果有渲染器支持更高版本的 Katex，我们会及时更新我们的 Katex 版本。
 
@@ -194,8 +185,6 @@ markdown:
 ```yml
 # Math Formulas Render Support
 math:
-  enable: true
-
   # Default (true) will load mathjax / katex script on demand.
   # That is it only render those page which has `mathjax: true` in Front-matter.
   # If you set it to false, it will load mathjax / katex srcipt EVERY PAGE.
@@ -213,12 +202,6 @@ math:
     # See: https://github.com/KaTeX/KaTeX/tree/master/contrib/copy-tex
     copy_tex: false
 ```
-
-### `enable`
-
-`true` 或者 `false`，默认为 `false`。
-
-`true` 是打开数学公式渲染，`false` 则是关闭。
 
 ### `per_page`
 

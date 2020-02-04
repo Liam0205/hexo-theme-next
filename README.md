@@ -1,8 +1,8 @@
 <div align="right">
   Language:
-  :us:
-  <a title="Chinese" href="docs/zh-CN/README.md">:cn:</a>
-  <a title="Russian" href="docs/ru/README.md">:ru:</a>
+  🇺🇸
+  <a title="Chinese" href="docs/zh-CN/README.md">🇨🇳</a>
+  <a title="Russian" href="docs/ru/README.md">🇷🇺</a>
 </div>
 
 # <div align="center"><a title="NexT website repository" href="https://github.com/theme-next/theme-next.org"><img align="center" width="56" height="56" src="https://raw.githubusercontent.com/theme-next/hexo-theme-next/master/source/images/logo.svg?sanitize=true"></a> e x T</div>
@@ -12,7 +12,7 @@
 <br>
 <br>
   <a href="https://github.com/theme-next/hexo-theme-next/releases"><img src="https://img.shields.io/github/package-json/v/theme-next/hexo-theme-next?style=flat-square"></a>
-  <a href="https://nodejs.org"><img src="https://img.shields.io/badge/node-%3E=8.6.0-green?style=flat-square"></a>
+  <a href="https://nodejs.org"><img src="https://img.shields.io/badge/node-%3E=10.9.0-green?style=flat-square"></a>
   <a href="https://hexo.io"><img src="https://img.shields.io/badge/hexo-%3E=3.5.0-blue?style=flat-square&logo=hexo"></a>
   <a href="https://github.com/theme-next/hexo-theme-next/blob/master/LICENSE.md"><img src="https://img.shields.io/badge/license-%20AGPL-orange?style=flat-square&logo=gnu"></a>
 <br>
@@ -27,7 +27,7 @@
 ## Live Preview
 
 <p align="center">
-  :heart_decoration: <a href="https://muse.theme-next.org">Muse</a> | :six_pointed_star: <a href="https://mist.theme-next.org">Mist</a> | :pisces: <a href="https://pisces.theme-next.org">Pisces</a> | :gemini: <a href="https://theme-next.org">Gemini</a>
+  💟 <a href="https://muse.theme-next.org">Muse</a> | 🔯 <a href="https://mist.theme-next.org">Mist</a> | ♓️ <a href="https://pisces.theme-next.org">Pisces</a> | ♊️ <a href="https://theme-next.org">Gemini</a>
 <br>
 <br>
   More «NexT» examples <a href="https://github.com/theme-next/awesome-next#live-preview">here</a>.
@@ -46,7 +46,7 @@ Or you can see [detailed installation instructions][docs-installation-url] if yo
 
 ## Plugins
 
-In NexT config now you can find dependencies on each module which was moved to external repositories which can be found by [main organization link](https://github.com/theme-next).
+In NexT config now you can find dependencies on each module which was moved to external repositories which can be found by [main organization link][official-plugins-url].
 
 For example, if you want to enable `pjax` on your site, go to NexT config and see:
 
@@ -72,7 +72,7 @@ vendors:
   mediumzoom: # Set or update mediumzoom CDN URL.
 ```
 
-Instead of defining [main organization link](https://github.com/theme-next) for updates.
+Instead of defining [main organization link][official-plugins-url] for updates.
 
 ## Update
 
@@ -100,7 +100,13 @@ However, you can bypass update errors by using the `Commit`, `Stash` or `Reset` 
 
 ## Contributing
 
-Contribution is welcome, feel free to open an issue and fork. Waiting for your pull request.
+We welcome you to join the development of NexT. Please see [contributing document][contributing-document-url]. 🤗
+
+Also, we welcome Issue or PR to [official-plugins][official-plugins-url].
+
+## Contributors
+
+[![][contributors-image]][contributors-url]
 
 ## Thanks
 
@@ -124,10 +130,10 @@ Contribution is welcome, feel free to open an issue and fork. Waiting for your p
 <br>
   <a href="https://codacy.com"><img align="center" width="155" src="https://user-images.githubusercontent.com/16944225/55026017-623f8f00-5002-11e9-88bf-0d6a5884c6c2.png"></a>
   &nbsp;&nbsp;&nbsp;
-  <a href="https://www.browserstack.com"><img align="center" width="140" src="https://www.browserstack.com/images/mail/browserstack-logo-footer.png"></a>
+  <a href="https://travis-ci.com"><img align="center" width="140" src="https://raw.githubusercontent.com/travis-ci/travis-web/master/public/images/logos/TravisCI-Full-Color.png"></a>
 <br>
 <br>
-  <sub>Codacy allows us to run the test suite, BrowserStack allows us to test in real browsers.</sub>
+  <sub>Codacy allows us to monitor code quality, Travis CI allows us to run the test suite.</sub>
 </p>
 
 [docs-installation-url]: https://github.com/theme-next/hexo-theme-next/blob/master/docs/INSTALLATION.md
@@ -143,4 +149,9 @@ Contribution is welcome, feel free to open an issue and fork. Waiting for your p
 [awesome-next-url]: https://github.com/theme-next/awesome-next
 [issues-bug-url]: https://github.com/theme-next/hexo-theme-next/issues/new?assignees=&labels=Bug&template=bug-report.md
 [issues-feat-url]: https://github.com/theme-next/hexo-theme-next/issues/new?assignees=&labels=Feature+Request&template=feature-request.md
-[feat-req-vote-url]: https://github.com/theme-next/hexo-theme-next/issues?q=is%3Aopen+is%3Aissue+label%3A%22Feature+Request%22+sort%3Areactions-%2B1-desc
+[feat-req-vote-url]: https://github.com/theme-next/hexo-theme-next/issues?q=is%3Aopen+is%3Aissue+label%3A%22Feature+Request%22
+
+[contributing-document-url]: https://github.com/theme-next/hexo-theme-next/blob/master/.github/CONTRIBUTING.md
+[official-plugins-url]: https://github.com/theme-next
+[contributors-image]: https://opencollective.com/theme-next/contributors.svg?width=890
+[contributors-url]: https://github.com/theme-next/hexo-theme-next/graphs/contributors

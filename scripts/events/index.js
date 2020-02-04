@@ -13,13 +13,9 @@ hexo.on('generateAfter', () => {
   if (!hexo.theme.config.reminder) return;
   const https = require('https');
   const path = require('path');
-  const env = require(path.normalize('../../package.json'));
-  https.get({
-    hostname: 'api.github.com',
-    port    : 443,
-    path    : '/repos/theme-next/hexo-theme-next/releases/latest',
-    method  : 'GET',
-    headers : {
+  const { version } = require(path.normalize('../../package.json'));
+  https.get('https://api.github.com/repos/theme-next/hexo-theme-next/releases/latest', {
+    headers: {
       'User-Agent': 'Theme NexT Client'
     }
   }, res => {
@@ -30,7 +26,7 @@ hexo.on('generateAfter', () => {
     res.on('end', () => {
       try {
         var latest = JSON.parse(result).tag_name.replace('v', '').split('.');
-        var current = env.version.split('.');
+        var current = version.split('.');
         var isOutdated = false;
         for (var i = 0; i < Math.max(latest.length, current.length); i++) {
           if (!current[i] || latest[i] > current[i]) {

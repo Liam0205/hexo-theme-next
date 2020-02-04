@@ -106,11 +106,12 @@ $line-height-code-block   = 1.6; // Can't be less than 1.3;
 
 // Z-index master list
 // --------------------------------------------------
-$zindex-1       = 100;
-$zindex-2       = 200;
-$zindex-3       = 300;
-$zindex-4       = 400;
-$zindex-5       = 500;
+$zindex-0       = 1000
+$zindex-1       = 1100;
+$zindex-2       = 1200;
+$zindex-3       = 1300;
+$zindex-4       = 1400;
+$zindex-5       = 1500;
 
 
 // Table
@@ -212,6 +213,7 @@ $posts-collapse-margin-mobile   = 20px;
 // Variables for sidebar section elements.
 // --------------------------------------------------
 
+$sidebar-padding                      = hexo-config('sidebar.padding') is a 'unit' ? unit(hexo-config('sidebar.padding'), px) : 18px;
 $sidebar-offset                       = hexo-config('sidebar.offset') is a 'unit' ? unit(hexo-config('sidebar.offset'), px) : 12px;
 $sidebar-nav-color                    = $black-light;
 $sidebar-nav-hover-color              = $whitesmoke;
@@ -284,6 +286,8 @@ $center-quote-right           = '../images/quote-r.svg';
 $lbg = hexo-config('note.light_bg_offset') is a 'unit' ? unit(hexo-config('note.light_bg_offset'), "%") : 0;
 
 // Default
+$note-border-radius         = 3px;
+
 $note-default-border        = #777;
 $note-default-bg            = lighten(spin($note-default-border, 0), 94% + $lbg);
 $note-default-text          = $note-default-border;
@@ -349,6 +353,9 @@ $note-modern-danger-bg      = lighten(spin($note-modern-danger-border, 10), 35% 
 $note-modern-danger-text    = #a94442;
 $note-modern-danger-hover   = darken(spin($note-modern-danger-text, -10), 22%);
 
+// Tabs border radius
+// --------------------------------------------------
+$tbr                        = 0;
 
 // Label colors
 // --------------------------------------------------

@@ -1,18 +1,4 @@
 <!DOCTYPE html>
-
-{# NexT version #}
-{%- set version = next_env('version') %}
-
-{# Language & Config #}
-{%- set title = __('title') !== 'title' and __('title') or config.title %}
-{%- set subtitle = __('subtitle') !== 'subtitle' and __('subtitle') or config.subtitle %}
-{%- set author = __('author') !== 'author' and __('author') or config.author %}
-{%- set description = __('description') !== 'description' and __('description') or config.description %}
-
-{%- if theme.pjax %}
-  {%- set pjax = ' pjax' %}
-{%- endif %}
-
 <html lang="{{ config.language }}">
 <head>
   {{ partial('_partials/head/head.swig', {}, {cache: theme.cache.enable}) }}
@@ -36,9 +22,7 @@
     <main class="main">
       <div class="main-inner">
         <div class="content-wrap">
-          {%- if theme.scheme === 'Pisces' or theme.scheme === 'Gemini' %}
-            {% include '_partials/header/sub-menu.swig' %}
-          {%- endif %}
+          {% include '_partials/header/sub-menu.swig' %}
           <div class="content">
             {% block content %}{% endblock %}
           </div>
@@ -53,8 +37,7 @@
     <footer class="footer">
       <div class="footer-inner">
         {{ partial('_partials/footer.swig', {}, {cache: theme.cache.enable}) }}
-        {{ partial('_partials/analytics/index.swig', {}, {cache: theme.cache.enable}) }}
-        {% block footer %}{% endblock %}
+        {{ partial('_third-party/statistics/index.swig', {}, {cache: theme.cache.enable}) }}
       </div>
     </footer>
   </div>
@@ -65,13 +48,10 @@
   {%- if theme.pjax %}
     <div id="pjax">
   {%- endif %}
-
   {% include '_third-party/math/index.swig' %}
   {% include '_third-party/quicklink.swig' %}
-  {% include '_third-party/vkontakte-api.swig' %}
 
   {{- next_inject('bodyEnd') }}
-
   {%- if theme.pjax %}
     </div>
   {%- endif %}

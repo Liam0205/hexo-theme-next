@@ -30,17 +30,11 @@ post:
   sticky: 固定
   views: 閲覧数
   related_posts: 関連記事
-  copy_button: コピー
-  copy_success: コピーしました
-  copy_failure: コピーに失敗しました
   copyright:
     author: 著者
     link: 記事へのリンク
     license_title: 著作権表示
     license_content: "このブログ内のすべての記事は、特別な記載がない限り %s の下のライセンスで保護されています。"
-page:
-  totally: 全ページ
-  tags: タグ
 footer:
   powered: "Powered by %s"
   theme: テーマ
@@ -61,7 +55,6 @@ counter:
     other: "全 %d ポスト"
 state:
   posts: ポスト
-  pages: ページ
   tags: タグ
   categories: カテゴリ
 search:
@@ -84,6 +77,8 @@ reward:
   alipay: Alipay
   paypal: PayPal
   bitcoin: ビットコイン
+follow_me:
+  welcome: Welcome to my other publishing channels
 accessibility:
   nav_toggle: ナビゲーションバーの切り替え
   prev_page: 前のページ

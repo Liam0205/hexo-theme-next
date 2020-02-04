@@ -1,6 +1,6 @@
-{%- if theme.menu and not is_home() and not is_post() %}
-  {% import 'menu-item.swig' as menu_item %}
+{% import '_partials/header/menu-item.swig' as menu_item with context %}
 
+{%- if theme.menu and is_page() %}
   {# Submenu & Submenu-2 #}
   {%- for name, value in theme.menu %}
     {%- set respath = value %}
@@ -8,14 +8,14 @@
 
       {# If current URL is value of parent submenu 'default' path #}
       {%- set currentParentUrl = page.path.split('/')[0] | trim %}
-      {%- if currentParentUrl == value.default.split('||')[0] | trim | replace('/', '', 'g') %}
+      {%- if currentParentUrl == value.default.split('||')[0] | trim | replace('/', '') %}
 
         {# Submenu items #}
         <ul id="sub-menu" class="sub-menu menu">
         {%- for subname, subvalue in value %}
           {# For main submenu items #}
           {%- if subvalue != '[object Object]' %}
-            {%- set itemName = subname.toLowerCase() %}
+            {%- set itemName = subname | lower %}
             {%- if itemName == 'default' %}
               {%- set parentValue = subvalue.split('||')[0] | trim %}
             {% else %}
@@ -24,15 +24,15 @@
               {% else %}
                 {%- set respath = parentValue + subvalue %}
               {%- endif %}
-              {{ menu_item.render(subname, respath) }}
+              {{ menu_item.render(subname, itemName, respath) }}
             {%- endif %}
           {% else %}
             {# For 'default' submenu item in main submenu #}
-            {%- set itemName = subname.toLowerCase() %}
+            {%- set itemName = subname | lower %}
             {%- for subname2, subvalue2 in subvalue %}
               {%- if subname2 == 'default' %}
                 {%- set respath = parentValue + subvalue2 %}
-                {{ menu_item.render(subname, respath) }}
+                {{ menu_item.render(subname, itemName, respath) }}
               {%- endif %}
             {%- endfor %}
           {%- endif %}
@@ -46,7 +46,7 @@
           {%- if value == '[object Object]' %}
 
             {%- for subname, subvalue in value %}
-              {%- set itemName = subname.toLowerCase() %}
+              {%- set itemName = subname | lower %}
               {%- if itemName == 'default' %}
                 {%- set parentValue = subvalue.split('||')[0] | trim %}
               {%- endif %}
@@ -55,13 +55,13 @@
                 {# If current URL is value of parent submenu 'default' path #}
                 {%- set paths = page.path.split('/') %}
                 {%- if paths.length > 2 %}
-                  {%- if paths[1] == subvalue.default.split('||')[0] | trim | replace('/', '', 'g') %}
+                  {%- if paths[1] == subvalue.default.split('||')[0] | trim | replace('/', '') %}
 
                     {# Submenu-2 items #}
                     <ul id="sub-menu-2" class="sub-menu menu">
                     {%- for subname2, subvalue2 in subvalue %}
                       {%- set respath2 = subvalue %}
-                      {%- set itemName = subname2.toLowerCase() %}
+                      {%- set itemName = subname2 | lower %}
                       {%- if itemName == 'default' %}
                         {%- set parentSubValue = subvalue2.split('||')[0] | trim %}
                       {% else %}
@@ -70,7 +70,7 @@
                         {% else %}
                           {%- set respath2 = parentValue + parentSubValue + subvalue2 %}
                         {%- endif %}
-                        {{ menu_item.render(subname2, respath2) }}
+                        {{ menu_item.render(subname2, itemName, respath2) }}
                       {%- endif %}
                     {%- endfor %}
                     </ul>

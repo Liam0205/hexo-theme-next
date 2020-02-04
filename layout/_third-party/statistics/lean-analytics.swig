@@ -1,14 +1,14 @@
 {%- if theme.leancloud_visitors.enable and not theme.valine.visitor %}
-  {# custom analytics part create by xiamo; edited by LEAFERx #}
   <script{{ pjax }}>
   function leancloudSelector(url) {
+    url = encodeURI(url);
     return document.getElementById(url).querySelector('.leancloud-visitors-count');
   }
   if (CONFIG.page.isPost) {
     function addCount(Counter) {
       var visitors = document.querySelector('.leancloud_visitors');
-      var url = visitors.getAttribute('id').trim();
-      var title = visitors.getAttribute('data-flag-title').trim();
+      var url = decodeURI(visitors.getAttribute('id'));
+      var title = visitors.getAttribute('data-flag-title');
 
       Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
         .then(response => response.json())
@@ -26,7 +26,7 @@
               })
             {%- endif %}
               .catch(error => {
-                console.log('Failed to save visitor count', error);
+                console.error('Failed to save visitor count', error);
               })
           } else {
             {%- if theme.leancloud_visitors.security %}
@@ -39,20 +39,20 @@
                   leancloudSelector(url).innerText = 1;
                 })
                 .catch(error => {
-                  console.log('Failed to create', error);
+                  console.error('Failed to create', error);
                 });
             {%- endif %}
           }
         })
         .catch(error => {
-          console.log('LeanCloud Counter Error', error);
+          console.error('LeanCloud Counter Error', error);
         });
     }
   } else {
     function showTime(Counter) {
       var visitors = document.querySelectorAll('.leancloud_visitors');
       var entries = [...visitors].map(element => {
-        return element.getAttribute('id').trim();
+        return decodeURI(element.getAttribute('id'));
       });
 
       Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
@@ -64,14 +64,11 @@
             });
             return;
           }
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.url;
-            var time = item.time;
+          for (let item of results) {
+            let { url, time } = item;
             leancloudSelector(url).innerText = time;
           }
-          for (var i = 0; i < entries.length; i++) {
-            var url = entries[i];
+          for (let url of entries) {
             var element = leancloudSelector(url);
             if (element.innerText == '') {
               element.innerText = 0;
@@ -79,7 +76,7 @@
           }
         })
         .catch(error => {
-          console.log('LeanCloud Counter Error', error);
+          console.error('LeanCloud Counter Error', error);
         });
     }
   }
@@ -99,8 +96,7 @@
         });
       };
       if (CONFIG.page.isPost) {
-        const localhost = /http:\/\/(localhost|127.0.0.1|0.0.0.0)/;
-        if (localhost.test(document.URL)) return;
+        if (CONFIG.hostname !== location.hostname) return;
         addCount(Counter);
       } else if (document.querySelectorAll('.post-title-link').length >= 1) {
         showTime(Counter);

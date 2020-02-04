@@ -30,17 +30,11 @@ post:
   sticky: چسبنده
   views: بازدیدها
   related_posts: پست های مرتبط
-  copy_button: کپی
-  copy_success: کپی شد
-  copy_failure: کپی انجام نشد
   copyright:
     author: نویسنده پست
     link: لینک پست
     license_title: مقررات کپی رایت
     license_content: "همه مقالات در این وبلاگ تحت %s مجاز می باشند مگر اینکه به طور اضافی بیان شوند."
-page:
-  totally: درمجموع
-  tags: برجسب ها
 footer:
   powered: "قدرت گرفته از %s"
   theme: پوسته
@@ -61,7 +55,6 @@ counter:
     other: "%d برچسب در مجموع."
 state:
   posts: پست ها
-  pages: صفحات
   tags: برجسب ها
   categories: دسته بندی ها
 search:
@@ -83,6 +76,8 @@ reward:
   wechatpay: پرداخت WeChat
   alipay: AliPay
   bitcoin: بیت کوین
+follow_me:
+  welcome: Welcome to my other publishing channels
 accessibility:
   nav_toggle: تغییر ناوبری
   prev_page: صفحه قبلی

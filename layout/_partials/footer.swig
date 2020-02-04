@@ -4,15 +4,16 @@
     {%- if theme.footer.beian.gongan_icon_url %}
       <img src="{{ theme.footer.beian.gongan_icon_url }}" style="display: inline-block;">
     {%- endif %}
-    {{- next_url('http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=' + theme.footer.beian.gongan_id,
-    theme.footer.beian.gongan_num + ' ') }}
+    {%- if theme.footer.beian.gongan_id and theme.footer.beian.gongan_num %}
+      {{- next_url('http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=' + theme.footer.beian.gongan_id, theme.footer.beian.gongan_num + ' ') }}
+    {%- endif %}
   </div>
 {%- endif %}
 
 <div class="copyright">
-  {%- set current = date(Date.now(), "YYYY") %}
-  &copy; {% if theme.footer.since and theme.footer.since != current %}{{ theme.footer.since }} – {% endif %}
-  <span itemprop="copyrightYear">{{ current }}</span>
+  {% set copyright_year = date(null, 'YYYY') %}
+  &copy; {% if theme.footer.since and theme.footer.since != copyright_year %}{{ theme.footer.since }} – {% endif %}
+  <span itemprop="copyrightYear">{{ copyright_year }}</span>
   <span class="with-love">
     <i class="fa fa-{{ theme.footer.icon.name }}"></i>
   </span>
@@ -44,7 +45,7 @@
 {%- if theme.footer.powered.enable %}
   <div class="powered-by">
     {{- __('footer.powered', next_url('https://hexo.io', 'Hexo', {class: 'theme-link'})) }}
-    {%- if theme.footer.powered.version %} v{{ hexo_env('version') }}{%- endif %}
+    {%- if theme.footer.powered.version %} v{{ hexo_version }}{%- endif %}
   </div>
 {%- endif %}
 
@@ -56,10 +57,10 @@
   <div class="theme-info">
     {%- set next_site = 'https://theme-next.org' %}
     {%- if theme.scheme !== 'Gemini' %}
-      {%- set next_site = 'https://' + theme.scheme.toLowerCase() + '.theme-next.org' %}
+      {%- set next_site = 'https://' + theme.scheme | lower + '.theme-next.org' %}
     {%- endif %}
     {{- __('footer.theme') }} – {{ next_url(next_site, 'NexT.' + theme.scheme, {class: 'theme-link'}) }}
-    {%- if theme.footer.theme.version %} v{{ version }}{%- endif %}
+    {%- if theme.footer.theme.version %} v{{ next_version }}{%- endif %}
   </div>
 {%- endif %}
 
