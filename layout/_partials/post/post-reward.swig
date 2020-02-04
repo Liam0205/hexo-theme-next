@@ -5,23 +5,20 @@
   </button>
   <div id="qr" style="display: none;">
 
-    {% for name, image in theme.reward %}
-      {% set paypal_exclude = ['paypal_id', 'paypal_img'] %}
-      {% if not paypal_exclude.includes(name) %}
-        {% set builtin = ['wechatpay', 'alipay', 'bitcoin'] %}
-        {% if builtin.includes(name) %}
-          {% set translation = __('reward.' + name) %}
-        {% else %}
-          {% set translation = name %}
-        {% endif %}
-        <div style="display: inline-block;">
-          <img src="{{ url_for(image) }}" alt="{{ author }} {{ translation }}">
-          <p>{{ translation }}</p>
-        </div>
-      {% endif %}
-    {% endfor %}
+    {%- for name, image in theme.reward %}
+      {%- set builtin = ['wechatpay', 'alipay', 'paypal', 'bitcoin'] %}
+      {%- if builtin.includes(name) %}
+        {%- set translation = __('reward.' + name) %}
+      {% else %}
+        {%- set translation = name %}
+      {%- endif %}
+      <div style="display: inline-block;">
+        <img src="{{ url_for(image) }}" alt="{{ author }} {{ translation }}">
+        <p>{{ translation }}</p>
+      </div>
+    {%- endfor %}
 
-    {% if theme.reward.paypal_id %}
+    {%- if theme.reward.paypal_id %}
       <div id="paypal" style="display: inline-block;">
         <img id="paypal_form">
           <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
