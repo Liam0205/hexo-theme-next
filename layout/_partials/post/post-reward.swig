@@ -7,7 +7,7 @@
 
     {% for name, image in theme.reward %}
       {% set paypal_exclude = ['paypal_id', 'paypal_img'] %}
-      {% if !paypal_exclude.includes(name) %}
+      {% if not paypal_exclude.includes(name) %}
         {% set builtin = ['wechatpay', 'alipay', 'bitcoin'] %}
         {% if builtin.includes(name) %}
           {% set translation = __('reward.' + name) %}
