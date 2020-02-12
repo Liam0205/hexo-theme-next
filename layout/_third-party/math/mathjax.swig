@@ -52,14 +52,12 @@
   NexT.utils.getScript('{{ mathjax_uri }}', () => {
     document.querySelectorAll('code').forEach(code => {
       const text = code.innerHTML;
-      is_inline_math = /^\$(.*)\$$/.exec(text);
-      is_display_math = /^\$\$(.*)\$\$$/ms.exec(text) || /^\\begin\{.+\}(.*)\\end\{.+\}/ms.exec(text);
-      if (is_inline_math || is_display_math) {
-        if (is_display_math) {
-          code.outerHTML = "<span class='yuuki_mathjax_display has-jax'>" + text + "</span>";
-        } else {
-          code.outerHTML = "<span class='yuuki_mathjax_inline has-jax'>" + text + "</span>";
-        }
+      // is_inline_math  = /^\$(.*)\$$/.exec(text) || /^\\\((.*)\\\)$/.exec(text);
+      // is_display_math = /^\$\$(.*)\$\$$/ms.exec(text) || /^\\begin\{.+\}(.*)\\end\{.+\}/ms.exec(text);
+      if (/^\$\$(.*)\$\$$/ms.exec(text) || /^\\begin\{.+\}(.*)\\end\{.+\}/ms.exec(text)) {
+        code.outerHTML = "<span class='yuuki_mathjax_display has-jax'>" + text + "</span>";
+      } else if (/^\$(.*)\$$/.exec(text) || /^\\\((.*)\\\)$/.exec(text)) {
+        code.outerHTML = "<span class='yuuki_mathjax_inline has-jax'>"  + text + "</span>";
       }
     });
     MathJax.Hub.Typeset();
