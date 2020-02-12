@@ -50,6 +50,7 @@
 {%- set mathjax_uri = theme.vendors.mathjax or '//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML' %}
 <script>
   NexT.utils.getScript('{{ mathjax_uri }}', () => {
+    {%- if theme.math.mathjax.math_in_verbatim %}
     document.querySelectorAll('code').forEach(code => {
       const text = code.innerHTML;
       // is_inline_math  = /^\$(.*)\$$/.exec(text) || /^\\\((.*)\\\)$/.exec(text);
@@ -60,6 +61,7 @@
         code.outerHTML = "<span class='yuuki_mathjax_inline has-jax'>"  + text + "</span>";
       }
     });
+    {%- endif %}
     MathJax.Hub.Typeset();
   }, window.MathJax);
 </script>
