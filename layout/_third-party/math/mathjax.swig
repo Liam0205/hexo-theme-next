@@ -50,22 +50,18 @@
 {%- set mathjax_uri = theme.vendors.mathjax or '//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML' %}
 <script>
   NexT.utils.getScript('{{ mathjax_uri }}', () => {
-    // window.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('code').forEach(code => {
       const text = code.innerHTML;
       is_inline_math = /^\$(.*)\$$/.exec(text);
       is_display_math = /^\$\$(.*)\$\$$/ms.exec(text) || /^\\begin\{.+\}(.*)\\end\{.+\}/ms.exec(text);
       if (is_inline_math || is_display_math) {
-        code.parentElement.classList.add('has-jax');
-        if (is_inline_math) {
-          code.outerHTML = "<span class=yuuki_mathjax_inline>" + text + "</span>";
+        if (is_display_math) {
+          code.outerHTML = "<span class='yuuki_mathjax_display has-jax'>" + text + "</span>";
         } else {
-          code.outerHTML = "<span class=yuuki_mathjax_display>" + text + "</span>";
+          code.outerHTML = "<span class='yuuki_mathjax_inline has-jax'>" + text + "</span>";
         }
-        // MathJax.Hub.Queue(["Typeset", MathJax.Hub, code]);
       }
     });
-    // });
     MathJax.Hub.Typeset();
   }, window.MathJax);
 </script>
