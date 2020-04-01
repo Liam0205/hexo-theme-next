@@ -27,6 +27,10 @@ hr {
 
 .content {
   padding-top: 80px;
+
+  +mobile() {
+    padding-top: 60px;
+  }
 }
 
 // Pagination
@@ -44,8 +48,8 @@ hr {
 // Footer
 // --------------------------------------------------
 .footer {
-  background: $whitesmoke;
-  color: $grey-dim;
+  background: var(--content-bg-color);
+  color: var(--text-color);
   padding: 10px 0;
 }
 

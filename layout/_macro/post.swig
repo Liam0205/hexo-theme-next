@@ -1,7 +1,7 @@
   {##################}
   {### POST BLOCK ###}
   {##################}
-  <article itemscope itemtype="http://schema.org/Article" class="post-block {% if is_index %}home{% endif %}" lang="{{ post.lang or post.language or config.language }}">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="{{ post.lang or config.language }}">
     <link itemprop="mainEntityOfPage" href="{{ post.permalink }}">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -16,7 +16,7 @@
 
     {%- if post.header !== false %}
       <header class="post-header">
-        <{%- if theme.seo %}h2{% else %}h1{%- endif %} class="post-title{%- if post.direction and post.direction.toLowerCase() === 'rtl' %} rtl{%- endif %}" itemprop="name headline">
+        <{%- if is_index %}h2{% else %}h1{%- endif %} class="post-title{%- if post.direction and post.direction.toLowerCase() === 'rtl' %} rtl{%- endif %}" itemprop="name headline">
           {# Link posts #}
           {%- if post.link %}
             {%- if post.sticky > 0 %}
@@ -38,7 +38,7 @@
             {{- post.title }}
             {{- post_edit(post.source) }}
           {%- endif %}
-        </{%- if theme.seo %}h2{% else %}h1{%- endif %}>
+        </{%- if is_index %}h2{% else %}h1{%- endif %}>
 
         <div class="post-meta">
 
@@ -150,7 +150,7 @@
               {%- if theme.symbols_count_time.item_text_post %}
                 <span class="post-meta-item-text">{{ __('symbols_count_time.time') }} &asymp;</span>
               {%- endif %}
-              <span>{{ symbolsTime(post, theme.symbols_count_time.awl, theme.symbols_count_time.wpm, __('symbols_count_time.time_minutes')) }}</span>
+              <span>{{ symbolsTime(post, config.symbols_count_time.awl, config.symbols_count_time.wpm, __('symbols_count_time.time_minutes')) }}</span>
             </span>
           {%- endif %}
 
